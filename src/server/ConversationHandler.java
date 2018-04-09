@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 import server.database.SQLQuery;
 
@@ -16,6 +18,7 @@ public class ConversationHandler extends Thread{
 	Socket socket;
 	BufferedReader in;
 	PrintWriter out;
+	static HashMap<String, PrintWriter> clients = new HashMap<String, PrintWriter>();
 
 	public ConversationHandler(Socket socket) throws IOException{
 		this.socket = socket;
@@ -84,8 +87,8 @@ public class ConversationHandler extends Thread{
 				}
 			}
 
-			ChatServer.clients.put(username, out);
-			ChatServer.printWriters.add(out);
+			//adds user to HashMap
+			clients.put(username, out);
 
 			//reads messages from the client and sends it to other clients
 			while(true) {
@@ -103,15 +106,16 @@ public class ConversationHandler extends Thread{
 					String msg = wholeMesssage[1];
 
 					//checks if client exists
-					if(ChatServer.clients.containsKey(sendTo)) {
-						PrintWriter writer = ChatServer.clients.get(sendTo);
+					if(clients.containsKey(sendTo)) {
+						PrintWriter writer = clients.get(sendTo);
 						writer.println(username + ":" + msg);
 					}else {
 						out.println("USERNOTLOGGED");
 					}
 				}else {
 					//sends to all the clients
-					for(PrintWriter writer : ChatServer.printWriters) {
+					for(Entry<String, PrintWriter> entry : clients.entrySet()) {
+						PrintWriter writer = entry.getValue();
 						writer.println(username + ":" + message);
 					}
 				}

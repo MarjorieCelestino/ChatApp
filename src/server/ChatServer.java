@@ -14,10 +14,6 @@ import server.database.SQLQuery;
  */
 public class ChatServer {
 
-	public static ArrayList<PrintWriter> printWriters = new ArrayList<PrintWriter>();
-	public static HashMap<String, PrintWriter> clients = new HashMap<String, PrintWriter>();
-
-
 	static MySQLConnection conn = new MySQLConnection();
 
 	public ChatServer() throws Exception{
