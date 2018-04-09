@@ -88,6 +88,13 @@ public class ChatClient{
 						"Incorrect password", 
 						JOptionPane.WARNING_MESSAGE);
 				break;
+			case "USERNOTLOGGED":
+				JOptionPane.showMessageDialog(
+						ChatWindowFrame.chatWindow, 
+						"Can't send message", 
+						"This user is not logged", 
+						JOptionPane.WARNING_MESSAGE);
+				break;
 			default:
 				//message from the other client
 				ChatWindowFrame.chatArea.append(str + "\n");

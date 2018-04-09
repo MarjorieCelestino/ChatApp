@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import server.database.MySQLConnection;
 import server.database.SQLQuery;
@@ -13,7 +14,9 @@ import server.database.SQLQuery;
  */
 public class ChatServer {
 
-	static ArrayList<PrintWriter> printWriters = new ArrayList<PrintWriter>();
+	public static ArrayList<PrintWriter> printWriters = new ArrayList<PrintWriter>();
+	public static HashMap<String, PrintWriter> clients = new HashMap<String, PrintWriter>();
+
 
 	static MySQLConnection conn = new MySQLConnection();
 

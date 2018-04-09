@@ -84,15 +84,31 @@ public class ConversationHandler extends Thread{
 				}
 			}
 
+			ChatServer.clients.put(username, out);
 			ChatServer.printWriters.add(out);
 
 			//reads messages from the client and sends it to other clients
 			while(true) {
 
 				String message = in.readLine();
+				char first = message.charAt(0);
 
 				if(message == null) {
 					return;
+
+				}else if(first == '@') {
+					//removes @ and separates the username from the message
+					String wholeMesssage[] = message.substring(1).split(" ", 2);
+					String sendTo = wholeMesssage[0];
+					String msg = wholeMesssage[1];
+
+					//checks if client exists
+					if(ChatServer.clients.containsKey(sendTo)) {
+						PrintWriter writer = ChatServer.clients.get(sendTo);
+						writer.println(username + ":" + msg);
+					}else {
+						out.println("USERNOTLOGGED");
+					}
 				}else {
 					//sends to all the clients
 					for(PrintWriter writer : ChatServer.printWriters) {

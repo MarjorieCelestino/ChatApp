@@ -11,8 +11,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import client.ui.SendButtonListener;
-
 /**
  * @author marge
  */
@@ -25,7 +23,7 @@ public class ChatWindowFrame {
 	//40 columns
 	public static JTextField textField = new JTextField(40);
 	//displays blank space between chatArea and textField
-	static JLabel blankLabel = new JLabel("                               ");
+	static JLabel blankLabel = new JLabel("                                                                ");
 	static JButton sendButton = new JButton("Send");
 	static BufferedReader in;
 	static PrintWriter out;
@@ -35,6 +33,7 @@ public class ChatWindowFrame {
 	public static JTextField passwordField = new JTextField(30);
 	static JButton loginButton = new JButton("Login");
 	static JButton signupButton = new JButton("SignUp");
+	static JLabel sendTo = new JLabel("Use @username to send a message directly to one person");
 
 
 	public ChatWindowFrame() {
@@ -49,6 +48,7 @@ public class ChatWindowFrame {
 		chatWindow.add(blankLabel);
 		chatWindow.add(new JScrollPane(chatArea));
 		chatWindow.add(blankLabel);
+		chatWindow.add(sendTo);
 		chatWindow.add(textField);
 		chatWindow.add(sendButton);
 
@@ -60,6 +60,7 @@ public class ChatWindowFrame {
 		//stops user from sending anything before server connection
 		textField.setEditable(false);
 		chatArea.setEditable(false);
+
 
 		//adds action to buttons
 		sendButton.addActionListener(new SendButtonListener());
