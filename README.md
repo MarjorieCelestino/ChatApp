@@ -11,7 +11,7 @@ Java Chat App application with registration and user login features.
 
 *Quick Start*
 -------------
-To work withi this project locally, go to a local folder and open a UNIX terminal in that folder (Git Bash in Windows) clone the projec by typing the following command:
+To work with this project locally, go to a local folder and open your UNIX terminal in that folder (Git Bash in Windows) clone the projec by typing the following command:
 
 * `git clone https: // github.com / MarjorieCelestino / ChatApp.git`
 
