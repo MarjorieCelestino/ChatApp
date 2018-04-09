@@ -1,6 +1,3 @@
-/**
- * 
- */
 package server;
 
 import java.io.PrintWriter;
@@ -13,7 +10,6 @@ import server.database.SQLQuery;
 
 /**
  * @author marge
- *
  */
 public class ChatServer {
 

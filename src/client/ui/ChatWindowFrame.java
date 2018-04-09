@@ -24,7 +24,7 @@ public class ChatWindowFrame {
 	public static JTextArea chatArea = new JTextArea(15,40);
 	//40 columns
 	public static JTextField textField = new JTextField(40);
-	//displays black space between chatArea and textField
+	//displays blank space between chatArea and textField
 	static JLabel blankLabel = new JLabel("                               ");
 	static JButton sendButton = new JButton("Send");
 	static BufferedReader in;

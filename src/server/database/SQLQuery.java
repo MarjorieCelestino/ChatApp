@@ -1,6 +1,3 @@
-/**
- * 
- */
 package server.database;
 
 import java.sql.ResultSet;
@@ -24,7 +21,7 @@ public class SQLQuery {
 	public static void createNewUser(String username, String password) throws Exception{
 		Statement statement = MySQLConnection.connection.createStatement();
 		String sql = "INSERT INTO users (username, password)" +
-                "VALUES ('" + username + "', '" + password + "')";
+				"VALUES ('" + username + "', '" + password + "')";
 		statement.executeUpdate(sql);
 		System.out.println("New user added to the database");
 	}

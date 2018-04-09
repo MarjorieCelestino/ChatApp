@@ -1,6 +1,3 @@
-/**
- * 
- */
 package client;
 
 import java.io.BufferedReader;
@@ -16,7 +13,6 @@ import client.ui.SignupButtonListener;
 
 /**
  * @author marge
- *
  */
 public class ChatClient{
 
@@ -33,7 +29,9 @@ public class ChatClient{
 				JOptionPane.PLAIN_MESSAGE);
 
 		Socket soc = new Socket(ipAdress, 9806);
+		//reads data 
 		in = new BufferedReader(new InputStreamReader(soc.getInputStream()));
+		//sends data
 		out = new PrintWriter(soc.getOutputStream(), true);
 
 		//breaks when user registers or logs in
@@ -45,7 +43,7 @@ public class ChatClient{
 			case "EMPTYINPUTFIELD":
 				JOptionPane.showMessageDialog(
 						ChatWindowFrame.chatWindow, 
-						"You need to enter your information in both fields.", 
+						"You need to enter your information in both fields", 
 						"Some field is empty!", 
 						JOptionPane.WARNING_MESSAGE);
 				break;

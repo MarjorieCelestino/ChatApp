@@ -5,20 +5,23 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ * @author marge
+ */
 public class MySQLConnection {
-	// init database constants
+	//init database constants
 	private static final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
 	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/chatusers";
 	private static final String USERNAME = "";
 	private static final String PASSWORD = "";
 	private static final String MAX_POOL = "250";
 
-	// init connection object
+	//init connection object
 	public static Connection connection;
-	// init properties object
+	//init properties object
 	private Properties properties;
 
-	// create properties
+	//create properties
 	private Properties getProperties() {
 		if (properties == null) {
 			properties = new Properties();
@@ -29,7 +32,7 @@ public class MySQLConnection {
 		return properties;
 	}
 
-	// connect database
+	//connect database
 	public Connection connect() {
 		if (connection == null) {
 			try {
@@ -43,7 +46,7 @@ public class MySQLConnection {
 		return connection;
 	}
 
-	// disconnect database
+	//disconnect database
 	public void disconnect() {
 		if (connection != null) {
 			try {

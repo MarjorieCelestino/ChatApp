@@ -21,7 +21,6 @@ public class ConversationHandler extends Thread{
 		this.socket = socket;
 	}
 
-	//waits for incoming data from the client
 	String username = "";
 	String password = "";
 	String buttonClicked = "";
@@ -61,10 +60,10 @@ public class ConversationHandler extends Thread{
 						}
 					}
 
-					//action click signup button
+					//action click login button
 					if(buttonClicked.equals("login")) {
 
-						//verifies if the user exists
+						//verifies if user exists
 						if(SQLQuery.findUser(username)){
 							//verifies if written password matches database password
 							if(SQLQuery.findUserPassword(username).equals(password)) {
