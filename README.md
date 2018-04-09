@@ -21,7 +21,7 @@ To work with this project locally, go to a local folder and open your UNIX termi
 * Check if JDB Driver is installed, if not then install it
   * Go to the `Properties` of your project > `Java build path` > `Libraries` > `Add External JARs` > Add the downloaded jar file
 * Run the Server side first with `StartServer.java` 
-* Create clientes with `StartClient.java`
+* Create clients with `StartClient.java`
 
 
 Bug tracker
