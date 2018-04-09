@@ -6,6 +6,7 @@ Java Chat App application with registration and user login features.
 ---------
 * User registration and login
 * User can receive and send messages
+* Send messages to all users or directly to one user
 * Use of Swing GUI widget toolkit for Java for creating user interface
 * MySQL Database connection
 
